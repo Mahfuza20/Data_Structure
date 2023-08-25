@@ -198,15 +198,15 @@ int main()
         }
         cout <<endl;
     }
-    for(int i=0;i<n;i++)
+    for(int i = 0;i<n;i++)
     {
-        for(int j=0;j<n;j++)
+        cout << (i+1)<<"th node has direct path to : ";
+        for(int j = 0;j<n;j++)
         {
-            if(adjMatrix[i][j]>=1)
-            {
-                cout << (i+1) <<"th node has direct path to"<<(j+1)<<"th node"<<endl;
-            }
+            if(adjMatrix[i][j] >= 1)
+                cout<<(j+1)<<" ";
         }
+        cout << endl;
     }
 }
 
