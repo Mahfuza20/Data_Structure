@@ -104,6 +104,7 @@ int main()
     }
 }
 
-
+//A+(B*C-(D/E^F)*G)*H
+// output ABC*DEF^/G*-H*+
 
 
