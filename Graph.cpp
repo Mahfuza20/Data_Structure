@@ -152,6 +152,21 @@ int main()
         cout <<"not Strongly" <<endl;
 }
 
+/* input output
+    4
+	2 5 0 0
+	2 0 1 4
+	5 3 3 3
+	4 2 3 0
+	
+	output
+	2 5 6 9
+	2 4 1 4
+	5 3 3 3
+	4 2 3 6
+not strong
+*/
+
 ///weightwed graph, with m nodes v1,.. each edge is using warshall's algorith
 #include<bits/stdc++.h>
 using namespace std;
@@ -210,6 +225,24 @@ int main()
     }
 }
 
+/*input output
+    4
+	2 5 0 0
+	2 0 1 4
+	5 3 3 3
+	4 2 3 0
+	weighted graph
+	2 5 6 9
+	2 4 1 4
+	5 3 3 3
+	4 2 3 6
+	1th node has direct path to : 1 2 3 4
+	2th node has direct path to : 1 2 3 4
+	3th node has direct path to : 1 2 3 4
+	4th node has direct path to : 1 2 3 4
+*/
+
+
 ///path matrix using warshall's algorithm
 #include<bits/stdc++.h>
 using namespace std;
@@ -250,5 +283,17 @@ int main()
         cout << endl;
     }
 }
+/*input output
+	4
+	1 1 1 0
+	0 1 0 1
+	1 0 1 0
+	0 1 0 1
+	output
+	1 1 1 1
+	0 1 0 1
+	1 1 1 1
+	0 1 0 1
+*/
 
 
