@@ -1,4 +1,4 @@
-/*
+
 /// insert heap
 #include<bits/stdc++.h>
 using namespace std;
@@ -50,7 +50,7 @@ int main()
     insertNode(tree, n, item);
     printTree(tree, n);
     return 0;
-}*/
+}
 /*
 5
 10 5 3 2 4
