@@ -99,3 +99,5 @@ int main()
     }
     cout <<pop()<<endl;
 }
+//5,6,7,+,-
+//output = 8
