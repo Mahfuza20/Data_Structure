@@ -1,0 +1,2169 @@
+ARRAY
+
+
+1.2D Array - Substruction , Addition and Multiplication
+
+
+—---------------------------------------------------------------------------------------------------------
+
+
+#include<bits/stdc++.h>
+
+
+using namespace std;
+
+
+int main() {
+
+        int row; // Number of row in the matrix
+
+        cin >> row;
+
+        int column; // Number of Column in the matrix
+
+        cin >> column;
+
+        int arr_A[row][column];
+
+        // Enter the first matrix
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        cin >> arr_A[i][j];
+
+                }
+
+        }
+
+        int arr_B[row][column];
+
+        // Enter The second Matrix
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        cin >> arr_B[i][j];
+
+                }
+
+        }
+
+
+        // Array Addition
+
+        //----------------------------------------------
+
+        int addition_Arr[row][column];
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        addition_Arr[i][j] = arr_A[i][j] + arr_B[i][j];
+
+                }
+
+        }
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        cout << addition_Arr[i][j] << " ";
+
+                }
+
+                cout << endl;
+
+        }
+
+        cout << endl;
+
+        //----------------------------------------------
+
+
+        // Array Substraction
+
+        //----------------------------------------------
+
+        int substractor_Arr[row][column];
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        substractor_Arr[i][j] = arr_A[i][j] - arr_B[i][j];
+
+                }
+
+        }
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        cout << substractor_Arr[i][j] << " ";
+
+                }
+
+                cout << endl;
+
+        }
+
+        cout << endl;
+
+        //----------------------------------------------
+
+
+        // Array Multiplication
+
+        //----------------------------------------------
+
+        int multiplication_arr[row][column];
+
+        memset(multiplication_arr, 0, sizeof(multiplication_arr));
+
+
+        for (int i = 0; i < row; ++i) {
+
+                for (int j = 0; j < column; ++j) {
+
+                        for (int k = 0; k < column; ++k)
+
+                        {
+
+                                multiplication_arr[i][j] += arr_A[i][k] * arr_B[k][j];
+
+                        }
+
+                }
+
+        }
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        cout << multiplication_arr[i][j] << " ";
+
+                }
+
+                cout << endl;
+
+        }
+
+        cout << endl;
+
+        //----------------------------------------------
+
+
+}
+
+
+
+—-------------------------------------------------------------------------------------------------------------------------
+
+
+2. Bubble Sort ( for string + Array)- Same job
+
+
+—-------------------------------------------------------------------------------------------------------------------------
+
+
+#include <bits/stdc++.h>
+
+
+using namespace std;
+
+
+int main() {
+
+        int n;
+
+        cin >> n;
+
+        int v[n];
+
+        for (int i = 0; i < n; i++) {
+
+                cin >> v[i];
+
+        }
+
+        for (int i = 0; i < n; i++) {
+
+                for (int j = 0; j < n - i - 1; j++) {
+
+                        if (v[j] > v[j + 1]) swap(v[j], v[j + 1]);
+
+                }
+
+        }
+
+        for (int i = 0; i < n; i++) {
+
+                cout << v[i] << " ";
+
+        }
+
+        cout << endl;
+
+}        
+
+
+—-------------------------------------------------------------------------------------------------------------------
+
+
+3.2D to 1D Array conversion and Finding value in 1D array
+
+
+—-------------------------------------------------------------------------------------------------------------------
+
+#include<bits/stdc++.h>
+
+
+using namespace std;
+
+
+int main() {
+
+        cout << "Enter The Number of Row : " << endl;
+
+        int row;
+
+        cin >> row;
+
+        cout << "Enter The Number of Column : " << endl;
+
+        int column;
+
+        cin >> column;
+
+        int arr[row][column];
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        cin >> arr[i][j];
+
+                }
+
+        }
+
+        // index of 1D array = row*(index_of_row-1) +(index_of_column-1);
+
+        int newArray[row * column];
+
+        int ind = 0;
+
+        for (int i = 0; i < row; i++) {
+
+                for (int j = 0; j < column; j++) {
+
+                        newArray[ind] = arr[i][j];
+
+                        ind++;
+
+                }
+
+        }
+
+
+        cout << "Enter the Index of row You want to print : " << endl;
+
+        int printRow;
+
+        cin >> printRow;
+
+        // This code will Print the Row
+
+        // ----------------------
+
+        ind = (printRow - 1) * column;
+
+        int cnt = 0;
+
+        while (cnt < column) {
+
+                cout << newArray[ind] << " ";
+
+                cnt++;
+
+                ind++;
+
+        }
+
+        cout << endl;
+
+        //---------------------------
+
+}
+
+
+
+—-------------------------------------------------------------------------------------------------------------------
+
+
+4. Sparse Matrix to 1D Array
+
+
+—-------------------------------------------------------------------------------------------------------------------
+
+#include<bits/stdc++.h>
+
+
+using namespace std;
+
+
+int main() {
+
+        int n;// NUmber of row and column;
+
+        // Is Triangular Matrix in row k the number of column is also K
+
+        cin >> n;
+
+        int arr[n][n];
+
+        memset(arr, 0, sizeof(arr));
+
+        for (int i = 0; i < n; i++) {
+
+                for (int j = 0; j < i + 1; j++) {
+
+                        cin >> arr[i][j];
+
+                }
+
+        }
+
+        int sz = (n * (n + 1)) / 2;
+
+        int new_Array[sz];
+
+        int ind = 0;
+
+        for (int i = 0; i < n; i++) {
+
+                for (int j = 0; j < i + 1; j++) {
+
+                        new_Array[ind] = arr[i][j];
+
+                        ind++;
+
+                }
+
+        }
+
+        int finding_Row, finding_Column; // Number of Raw and Column you want to find,Here column<=row;
+
+        cin >> finding_Row >> finding_Column;
+
+        finding_Row--;
+
+        int newInd = (finding_Row * (finding_Row + 1)) / 2;
+
+        cout << new_Array[newInd + finding_Column - 1] << endl;
+
+}
+
+
+—-------------------------------------------------------------------------------------------------------------------------
+
+
+LINKED LIST
+
+
+
+Linked List Insertion , Deletion, Traverse , Finding element in Linked list
+
+
+
+—------------------------------------------------------------------------------------------------------------------------
+
+#include       <bits/stdc++.h>
+
+using namespace std;
+
+
+
+// Created a Class
+
+class Node {
+
+public:
+
+        int roll;
+
+        Node *next;
+
+        Node(int roll, Node *next) {
+
+                this->roll = roll;
+
+                this->next = next;
+
+        }
+
+};
+
+
+// Initilizing The Head Pointer as Null and Last ind as Null
+
+Node* head = NULL;
+
+Node *last_ind  = NULL;
+
+
+
+//Code to insert a value to the linked List
+
+void insert(int value) {
+
+        Node* ok = new Node(value, NULL);// Create a Class
+
+        if (head == NULL) {
+
+                head = ok;
+
+                return;
+
+        }
+
+        Node* track = head;
+
+        while (track->next != NULL) track = track->next;
+
+        track->next = ok;
+
+}
+
+
+
+//This code will delete a Node from the linked list with specific Value
+
+void Delete(int value) {
+
+        int cnt = 0;
+
+        Node* last = NULL;
+
+        Node* start = head;
+
+        while (start != NULL) {
+
+                if (start->roll == value) {
+
+                        if (cnt == 0) {
+
+                                if (start->next != NULL) {
+
+                                        start = start->next;
+
+                                        head = start;
+
+                                }
+
+                                else {
+
+                                        start = NULL;
+
+                                        head = NULL;
+
+                                }
+
+                        }
+
+                        else {
+
+                                if (start->next != NULL) {
+
+                                        last->next = start->next;
+
+                                }
+
+                                else {
+
+                                        last->next = NULL;
+
+                                }
+
+                        }
+
+                        return;
+
+                }
+
+                cnt++;
+
+                last = start;
+
+                start = start->next;
+
+                // cout << last->roll << endl;
+
+        }
+
+        cout << "Invalid Number " << endl;
+
+}
+
+
+void see() {
+
+        Node* start = head;
+
+        while (start != NULL) {
+
+                cout << start->roll << " ";
+
+                start = start ->next;
+
+        }
+
+        cout << endl;
+
+}
+
+
+void search(int value) {
+
+        int ind = 1;
+
+        Node* start = head;
+
+        while (start != NULL) {
+
+                if (start->roll == value) {
+
+                        cout << "The index of value " << value << " is " << ind << endl;
+
+                        return;
+
+                }
+
+                ind++;
+
+                start = start ->next;
+
+        }
+
+        cout << "The value You are searching for is not in the Linked list" << endl;
+
+}
+
+
+void solve()
+
+{
+
+        see();
+
+        insert(1);
+
+        see();
+
+        insert(12);
+
+        insert(13);
+
+        Delete(11);
+
+        Delete(1);
+
+        see();
+
+        search(13);
+
+}
+
+
+
+int main()
+
+{
+
+
+        int test_case;
+
+        test_case = 1;
+
+        // cin >> test_case;
+
+        for (int i = 1; i <= test_case; i++)
+
+        {
+
+                //cout << "Case " << i << ": ";
+
+                solve();
+
+
+        }
+
+
+        return 0;
+
+}
+
+—-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Queue, Stack, Recursion
+
+
+1.Implementation Stack
+
+
+—--------------------------------------------------------------------------------------------------------------------------
+
+#include<bits/stdc++.h>
+
+
+using namespace std;
+
+
+const int MAXSTK = 1e5; // maximum number of elements stack can hold
+
+
+void push(int stack[], int &top, int item) {
+
+    if (top == MAXSTK) {
+
+        cout << "Over flow\n";
+
+        return;
+
+    }
+
+    stack[top] = item;
+
+    top = top + 1;
+
+}
+
+
+void pop(int &top, int stack[]) {
+
+    if (top == 0) {
+
+        cout << "Underflow\n";
+
+        return;
+
+    }
+
+    cout << stack[top - 1] << endl;
+
+    top = top - 1;
+
+}
+
+
+int main()
+
+{
+
+    // initialize the stack
+
+    int stack[MAXSTK];
+
+    int top = 0;
+
+
+    // inserting an elemet
+
+    int item;
+
+    cin >> item;
+
+    push(stack, top, item);
+
+    push(stack, top, 5);
+
+    push(stack, top, 1);
+
+    push(stack, top, 98);
+
+
+
+    // deleting an elemet
+
+    pop(top, stack);
+
+    pop(top, stack);
+
+    pop(top, stack);
+
+    pop(top, stack);
+
+
+
+}
+
+
+—----------------------------------------------------------------------------------------------------------------------------
+
+
+2.Infix to Postfix then finding Arithmetic value
+
+
+
+—-------------------------------------------------------------------------------------------------------------------------
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+#define pb push_back
+
+
+#define MAX 100000 //max size for stack;
+
+
+
+// These three function is for Postfix expression stack
+
+void Push(string ok, string stack[], int &ind) {
+
+   if (ind == MAX) {
+
+      cout << "Overflow" << endl;
+
+      return;
+
+   }
+
+   stack[ind] = ok;
+
+   ind++;
+
+}
+
+
+void Pop(string stack[], int &ind) {
+
+   if (ind == 0) {
+
+      cout << "Underflow" << endl;
+
+      return;
+
+   }
+
+   ind--;
+
+}
+
+
+string top(string stack[], int &ind) {
+
+   if (ind == 0) {
+
+      cout << "Underflow" << endl;
+
+      return NULL;
+
+   }
+
+   return stack[ind - 1];
+
+}
+
+
+// These Three function is for Arithmetic expression-This stack will do the Arithmetic calculation
+
+void fPush(float ok, float stack[], int &ind) {
+
+   if (ind == MAX) {
+
+      cout << "Overflow" << endl;
+
+      return;
+
+   }
+
+   stack[ind] = ok;
+
+   ind++;
+
+}
+
+
+void fPop(float stack[], int &ind) {
+
+   if (ind == 0) {
+
+      cout << "Underflow" << endl;
+
+      return;
+
+   }
+
+   ind--;
+
+}
+
+
+float ftop(float stack[], int &ind) {
+
+   if (ind == 0) {
+
+      cout << "Underflow" << endl;
+
+      return NULL;
+
+   }
+
+   return stack[ind - 1];
+
+}
+
+
+// This function will calculate (a^b)
+
+int b_exponential(int a, int b) {
+
+   int res = 1;
+
+   while (b > 0) {
+
+      if (b & 1) res *= a;
+
+      a *= a;
+
+      b >>= 1;
+
+   }
+
+   return res;
+
+}
+
+
+
+int main()
+
+{
+
+   // this map will store power precedence of operator
+
+   // Highest precedence operator has highest value
+
+   map<string, int>pow;
+
+   pow["-"] = 1;
+
+   pow["+"] = 2;
+
+   pow["/"] = 3;
+
+   pow["*"] = 4;
+
+   pow["^"] = 5;
+
+   string s;   // Infix expression in string
+
+   cin >> s;
+
+   string stack[MAX];   // Stack to calculate postfix Expression
+
+   int ind = 0;   // size of stack
+
+   vector<string>v;  // This vector will contain all number , bracket and operator individually
+
+   vector<string>postfix;  // This vector will store postfix expression
+
+   string ok = "";
+
+   Push("(", stack, ind);  // First we will push '(' into the stack
+
+   for (int i = 0; i < s.size(); i++) {
+
+      char symb = s[i];
+
+      string ss = "";
+
+      ss += symb;
+
+      if (symb == '+' || symb == '-' || symb == '*' || symb == '/' || symb == '^' || symb == '(' || symb == ')') {
+
+         if (ok != "")v.pb(ok);
+
+         v.pb(ss);
+
+         ok = "";
+
+      }
+
+      else {
+
+         ok += s[i];
+
+      }
+
+   }
+
+   if (ok.size() > 0) v.pb(ok);
+
+   int cnt = 0;
+
+
+   // This for loop will calculate Postfix Expression
+
+   for (int i = 0; i < v.size(); i++) {
+
+      string symb = v[i];
+
+      if (symb == "(") {
+
+         Push(symb, stack, ind);
+
+      }
+
+      else if (symb == ")") { // if its ')' than we will pop every element from stack untill we find '('
+
+         while (top(stack, ind) != "(") {
+
+            string check = top(stack, ind);
+
+            postfix.push_back(check);
+
+            Pop(stack, ind);
+
+         }
+
+         Pop(stack, ind);
+
+      }
+
+      else if (symb == "+" || symb == "-" || symb == "*" || symb == "/" || symb == "^") {
+
+         string ok = top(stack, ind);
+
+         if ( ok == "(") {
+
+            Push(symb, stack, ind);
+
+            continue;
+
+         }
+
+         else if (pow[ok] <= pow[symb]) {
+
+            Push(symb, stack, ind);
+
+            continue;
+
+         }
+
+         while (pow[top(stack, ind)] > pow[symb] ) { // Pop all Comperator with greater precedence
+
+            string x = top(stack, ind);
+
+            postfix.push_back(x);
+
+            Pop(stack, ind);
+
+         }
+
+         Push(symb, stack, ind);
+
+      }
+
+      else {
+
+         postfix.push_back(symb);
+
+      }
+
+   }
+
+   while (top(stack, ind) != "(") {
+
+      postfix.push_back(top(stack, ind));
+
+      Pop(stack, ind);
+
+   }
+
+   cout << "Work done " << endl;
+
+   for (auto x : postfix) {
+
+      cout << x << " ";
+
+   }
+
+   cout << endl;
+
+
+   // Here we will calculate our Arithmetic Expression ans;
+
+   double ans;
+
+   float final[MAX]; // This stack will calculate arithmetic operation to find the ans
+
+   int ind2 = 0;
+
+   for (int i = 0; i < postfix.size(); i++) {
+
+      string symb = postfix[i];
+
+      if (symb == "+" || symb == "-" || symb == "*" || symb == "/" || symb == "^") {
+
+         double s = ftop(final, ind2);
+
+         fPop(final, ind2);
+
+         double f = ftop(final, ind2);
+
+         fPop(final, ind2);
+
+         cout << "f " << f << " s " << s << endl;
+
+         if (symb == "+") {
+
+            ans = f + s;
+
+         }
+
+         else if (symb == "-") {
+
+            ans = f - s;
+
+         }
+
+         else if (symb == "*") {
+
+            ans  = f * s;
+
+         }
+
+         else if (symb == "/") {
+
+            ans = f / s;
+
+         }
+
+         else if (symb == "^") {
+
+            int okk = b_exponential(int(f), int(s));
+
+            cout << "okkk " << okk << endl;
+
+            ans = double(okk);
+
+         }
+
+         fPush(ans, final, ind2);
+
+      }
+
+      else {
+
+         int ok = stoi(symb);
+
+         double last = ok * 1.00;
+
+         fPush(last, final, ind2);
+
+      }
+
+   }
+
+   cout << endl;
+
+   cout << "Ans : "  << ans << endl;
+
+
+   return 0;
+
+}
+
+
+—------------------------------------------------------------------------------------------------------------
+
+
+3.Quick Sort
+
+
+
+—----------------------------------------------------------------------------------------------------------------
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+int partition(int arr[] , int low , int high) {
+
+        int privit = arr[high] ;
+
+        int c = low - 1 ;
+
+        for (int i = low ; i < high ; i++) {
+
+                if (arr[i] < privit)
+
+                {
+
+                        c++ ;
+
+                        swap(arr[i] , arr[c]) ;
+
+                }
+
+        }
+
+        c++ ;
+
+        swap(arr[high] , arr[c]) ;
+
+        return c ;
+
+}
+
+void Quicksort(int arr[] , int low , int high) {
+
+        if (low < high) {
+
+                int privit = partition(arr , low , high);
+
+                Quicksort(arr , low , privit - 1) ;
+
+                Quicksort(arr , privit + 1 , high) ;
+
+        }
+
+}
+
+int main() {
+
+        int n = 0 , m = 0 , k = 0 , ans = 0 , cnt = 0 ;
+
+        cin >> n ;
+
+        int arr[n] ;
+
+        for (int i = 0 ; i < n ; i++) cin >> arr[i] ;
+
+        Quicksort(arr , 0 , n - 1) ;
+
+        for (int i = 0 ; i < n ; i++) {
+
+                cout << arr[i] << " " ;
+
+        }
+
+        cout << endl;
+
+}
+
+
+—-------------------------------------------------------------------------------------------------------------------------
+
+
+4.Queue Insert,Delete,Diplay
+
+
+—-------------------------------------------------------------------------------------------------------------------------
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+const int MAX = 100000;
+
+int arr[MAX];
+
+int front = -1;
+
+int rear = -1;
+
+
+void Insert() {
+
+        int num ;
+
+        cout << "Enter Number to Insert: ";
+
+        cin >> num;
+
+        cout << endl;
+
+        if (rear == MAX - 1) {
+
+                cout << "arr Overflow" << endl;
+
+                return;
+
+        }
+
+        if (front == -1) front = 0;
+
+        rear++;
+
+        arr[rear] = num;
+
+}
+
+
+void Delete() {
+
+        if (front == -1 || front > rear) {
+
+                cout << "arr Underflow" << endl;
+
+                return;
+
+        }
+
+        front++;
+
+}
+
+
+void Display() {
+
+        if (front == -1) {
+
+                cout << "arr Empty" << endl;
+
+                return;
+
+        }
+
+        for (int i = front; i <= rear; i++) {
+
+                cout << arr[i] << " ";
+
+        }
+
+        cout << endl;
+
+}
+
+
+int main() {
+
+        int choice;
+
+        // 1 -> Insert Element
+
+        // 2 -> Delete Element
+
+        // 3 -> Display arr
+
+        // 4 -> Exit
+
+        while (1) {
+
+                cout << "Enter Your choice : ";
+
+                cin >> choice;
+
+                cout << endl;
+
+                if (choice == 1) {
+
+                        Insert();
+
+                }
+
+                else if (choice == 2) {
+
+                        Delete();
+
+                }
+
+                else if (choice == 3) {
+
+                        Display();
+
+                }
+
+                else {
+
+                        break;
+
+                }
+
+        }
+
+}
+
+
+—--------------------------------------------------------------------------------------------------------------------
+
+
+Tree
+
+
+
+1.Binary Search Tree
+
+
+—-----------------------------------------------------------------------------------------------------------------------
+
+
+#include<iostream>
+
+
+using namespace std;
+
+
+const int mx = 1e6;
+
+
+int main()
+
+{
+
+    // let's form the tree with an array
+
+    // root will be at index 1
+
+    // a node x would have a left child at index at 2x
+
+    // and the right child at index 2x+1
+
+
+    int tree[mx]; // declare the array
+
+
+    for (int i = 0; i < mx; i++)
+
+        tree[i] = NULL;
+
+    // initialize the array with NULL, that indicates an array index is empty
+
+
+    // process some quires on insert or finding
+
+    // process would continue untill 0 occurs
+
+    while (true) {
+
+        int item;
+
+        cin >> item;
+
+
+        if (item == 0) break; // To break the loop enter 0 ;
+
+
+        // first we would try to find the item, starting from the root
+
+        // if we reach a index with NULL value then assign item on that index
+
+
+        int cur = 1; // a variable pointing on root
+
+        while (tree[cur] != NULL) {
+
+            if (tree[cur] == item) {
+
+                // search is complete, item found...
+
+                cout << item << " found on index : " << cur << endl;
+
+                break;
+
+            } else if (item < tree[cur]) {
+
+                // if item is less than element then go left child
+
+                cur = cur*2;
+
+            } else {
+
+                // if item is greater of equal then right child
+
+                cur = (cur*2) + 1;
+
+            }
+
+        }
+
+        if (tree[cur] == NULL) {
+
+            tree[cur] = item;
+
+        }
+
+    }
+
+    for (int i = 1; i < 200; i++) {
+
+        if (tree[i] == NULL) continue;
+
+        cout << tree[i] << " -> ";
+
+        if (tree[2*i] != NULL) cout << tree[2*i] << " : ";
+
+        else cout << "null : ";
+
+
+        if (tree[(2*i)+1] != NULL) cout << tree[(2*i)+1] << endl;
+
+        else cout << "null\n";
+
+    }
+
+    return 0;
+
+}
+
+
+—----------------------------------------------------------------------------------------------------------------------
+
+
+2.Max , Min Heap
+
+
+
+—---------------------------------------------------------------------------------------------------------------------
+
+
+#include<iostream>
+
+
+using namespace std;
+
+
+int main()
+
+{
+
+    int mxheap[129]; // declaring a max heap
+
+    // 1 is the root
+
+    // left child of node x is 2x
+
+    // right child of node x is 2x+1
+
+
+    //inserting elements in max heap
+
+    int n = 1;
+
+    while (1) {
+
+        Int item;
+
+        cin>>item;        
+
+        if(item==0) break; // Enter 0 to break the Loop        
+
+        mxheap[n] = item;
+
+        int cur = n;
+
+        while (cur != 1) {
+
+            int pa = cur/2;
+
+            if (mxheap[pa] >= mxheap[cur]) break; // Change ‘>’ to ‘<’ for min Heap
+
+            swap(mxheap[cur], mxheap[pa]);
+
+            cur = pa;
+
+        }
+
+        n = n+1;
+
+    }
+
+    for (int i = 1; i < n; i++)
+
+        cout << mxheap[i] << " ";
+
+    return 0;
+
+}
+
+
+—------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+3. Pre-Order, In-Order, Post-Order traversal
+
+
+—------------------------------------------------------------------------------------------------------------------------------
+
+
+#include<iostream>
+
+
+using namespace std;
+
+
+void preorder(int node, char T[]){
+
+    if (T[node] == NULL) return;
+
+    cout << T[node] << " ";
+
+    preorder((node*2)+1, T);
+
+    preorder((node*2)+2, T);
+
+}
+
+
+void inorder(int node, char T[]){
+
+    if (T[node] == NULL) return;
+
+    inorder((node*2)+1, T);
+
+    cout << T[node] << " ";
+
+    inorder((node*2)+2, T);
+
+}
+
+
+void postorder(int node, char T[]){
+
+    if (T[node] == NULL) return;
+
+    postorder((node*2)+1, T);
+
+    postorder((node*2)+2, T);
+
+    cout << T[node] << " ";
+
+}
+
+
+int main()
+
+{
+
+    char T[128]; // declare a tree T
+
+    // 0 is the root node
+
+    // left child of node x is 2x+1
+
+    // right child of node x is 2x+2
+
+
+    for (int i = 0; i < 128; i++)
+
+        T[i] = NULL;
+
+/*
+
+                   A
+
+            B           c
+
+        D           E       F
+
+    G       H
+
+                K
+
+*/
+
+    // taking the above tree as input as default
+
+    T[0] = 'A';
+
+    T[1] = 'B'; T[2] = 'C';
+
+    T[3] = 'D'; T[5] = 'E'; T[6] = 'F';
+
+    T[7] = 'G'; T[8] = 'H';
+
+    T[18] = 'K';
+
+
+    // traverse in preorder
+
+    cout << "preorder : ";
+
+    preorder(0, T);
+
+    cout << endl;
+
+
+    // traverse inorder
+
+    cout << "inorder : ";
+
+    inorder(0, T);
+
+    cout << endl;
+
+
+    // traverse postoder
+
+    cout << "postorder : ";
+
+    postorder(0, T);
+
+    cout << endl;
+
+
+    return 0;
+
+}
+
+
+—------------------------------------------------------------------------------------------------------------------
+
+
+Graph
+
+
+1.Adjacency Matrix
+
+
+—-----------------------------------------------------------------------------------------------------------------
+
+
+#include<iostream>
+
+
+using namespace std;
+
+
+const int mx = 1e3;
+
+int Adj[mx][mx]; // Adjacent Matrix
+
+
+void number_of_N_length_path(int N, int m){
+
+    // declare a path matrix
+
+    int P[m][m];
+
+
+    // initialize path matrix p, that is p^1
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            P[i][j] = Adj[i][j];
+
+        }
+
+    }
+
+
+    // now let's make P^N
+
+    for (int i = 2; i <= N; i++) {
+
+        int tmpM[m][m]; // A temporary matrix to hold the matrix multiplication
+
+
+        // now perform P*Adj that is matrix multiplication
+
+        for (int j = 0; j < m; j++) for (int k = 0; k < m; k++) {
+
+            int tmp = 0;
+
+            for (int l = 0; l < m; l++) {
+
+                tmp += Adj[j][l] * P[l][k];
+
+            }
+
+            tmpM[j][k] = tmp;
+
+        }
+
+
+        // Now transfer data from temporary matrix to path matrix
+
+        for (int j = 0; j < m; j++) {
+
+            for (int k = 0; k < m; k++) {
+
+                P[j][k] = tmpM[j][k];
+
+            }
+
+        }
+
+    }
+
+
+    /*Print path matrix
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++)
+
+            cout << P[i][j] << " ";
+
+        cout << endl;
+
+    }*/
+
+
+    // Now we have path matrix P, which is Adj^N
+
+    // Now a cell, (i, j) contains the number of N length path from node i to node j
+
+
+    cout << "Give node vi and vj :\n";
+
+    int vi, vj;
+
+    cin >> vi >> vj; // taking vi, vj input
+
+
+    cout << "No of paths of " << N << " length from " << vi << " to " << vj << " is ";
+
+    cout << P[vi-1][vj-1] << endl;
+
+}
+
+
+int main()
+
+{
+
+    freopen("in.txt", "r", stdin);
+
+
+    int m; // number of vertices
+
+    cin >> m;
+
+
+    // take input for adjacent matrix
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            cin >> Adj[i][j];
+
+        }
+
+    }
+
+
+    //1 (a)
+
+    for (int i = 0; i < m; i++) {
+
+        cout << "the adjacent of " << i+1 << " are : ";
+
+        for (int j = 0; j < m; j++) {
+
+            if (Adj[i][j] == 1)
+
+                cout << j+1 << " ";
+
+        }
+
+        cout << endl;
+
+    }
+
+
+    //for 1. (b)
+
+    number_of_N_length_path(2, m);
+
+    // 1. (c)
+
+    number_of_N_length_path(3, m);
+
+    // 1. (d)
+
+    number_of_N_length_path(4, m);
+
+
+    return 0;
+
+}
+
+
+—-----------------------------------------------------------------------------------------------------------------------------
+
+
+2.Calculate Path Matrix Br
+
+
+—---------------------------------------------------------------------------------------------------------------------------
+
+
+#include<iostream>
+
+
+using namespace std;
+
+
+int main()
+
+{
+
+    freopen("in.txt", "r", stdin);
+
+
+    int m; // number of vertices
+
+    cin >> m;
+
+
+    int Adj[m][m]; // Adjacent Matrix
+
+    // take input for adjacent matrix
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            cin >> Adj[i][j];
+
+        }
+
+    }
+
+
+    // declare a path matrix
+
+    int P[m][m];
+
+    int br[m][m];
+
+
+
+    // initialize path matrix p, that is p^1
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            P[i][j] = Adj[i][j];
+
+            br[i][j]  = Adj[i][j];
+
+        }
+
+    }
+
+
+    // now let's make P^m
+
+    for (int i = 2; i <= m; i++) {
+
+        int tmpM[m][m]; // A temporary matrix to hold the matrix multiplication
+
+
+        // now perform P*Adj that is matrix multiplication
+
+        for (int j = 0; j < m; j++) for (int k = 0; k < m; k++) {
+
+            int tmp = 0;
+
+            for (int l = 0; l < m; l++) {
+
+                tmp += Adj[j][l] * P[l][k];
+
+            }
+
+            tmpM[j][k] = tmp;
+
+        }
+
+
+        // Now transfer data from temporary matrix to path matrix
+
+        for (int j = 0; j < m; j++) {
+
+            for (int k = 0; k < m; k++) {
+
+                P[j][k] = tmpM[j][k];
+
+                br[j][k] += P[j][k];
+
+            }
+
+        }
+
+    }
+
+
+    // here the path matrix Br
+
+    cout << "Path matrix Br : \n";
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++)
+
+            cout << br[i][j] << " ";
+
+        cout << endl;
+
+    }
+
+
+    // if every cell in Br is greater than zero then
+
+    // the graph is strongly connected
+
+    bool strong = true;
+
+    // taking a boolean variable which indicates the graph is strongly connected or not.
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            if (br[i][j] == 0) // if a cell is zero then graph is not strongly connected
+
+                strong = false;
+
+        }
+
+    }
+
+
+    if (strong) {
+
+        cout << "Graph is strongly connected\n";
+
+    } else {
+
+        cout << "Graph isn't strongly connected\n";
+
+    }
+
+
+    return 0;
+
+}
+
+
+—------------------------------------------------------------------------------------------------------------------------
+
+
+3. Warshall Algorithm - Finding Path Matrix
+
+
+—------------------------------------------------------------------------------------------------------------------------
+
+#include<iostream>
+
+
+using namespace std;
+
+
+int main()
+
+{
+
+    freopen("in.txt", "r", stdin);
+
+
+    int m; // number of vertices
+
+    cin >> m;
+
+
+    int Adj[m][m]; // Adjacent Matrix
+
+    // take input for adjacent matrix
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            cin >> Adj[i][j];
+
+        }
+
+    }
+
+
+    // Making path matrix by warshall algorithm
+
+    int P[m][m]; // the path matrix
+
+
+    // initialize the path matrix
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            P[i][j] = Adj[i][j];
+
+        }
+
+    }
+
+
+    // Applying warshall
+
+    for (int k = 0; k < m; k++) {
+
+        for (int i = 0; i < m; i++) {
+
+            for (int j = 0; j < m; j++) {
+
+                P[i][j] = P[i][j] | (P[i][k] & P[k][j]);
+
+            }
+
+        }
+
+    }
+
+
+    cout << "Path matrix : \n";
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            cout << P[i][j] << " ";
+
+        }
+
+        cout << endl;
+
+    }
+
+}
+
+
+—-----------------------------------------------------------------------------------------------------------------
+
+
+4. Warshall Algorithm - Finding Shortest Path
+
+
+
+—----------------------------------------------------------------------------------------------------------------
+
+#include<iostream>
+
+
+using namespace std;
+
+
+const int inf = 1e9;
+
+
+int main()
+
+{
+
+    freopen("in.txt", "r", stdin);
+
+
+    int m; // number of vertices
+
+    cin >> m;
+
+
+    int Adj[m][m]; // Adjacent Matrix of weight edge
+
+    // take input for adjacent matrix
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            cin >> Adj[i][j];
+
+        }
+
+    }
+
+
+    // Making shortest path matrix by warshall algorithm
+
+    int P[m][m]; // the path matrix
+
+
+    // initialize the path matrix
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            // if there is no edge between i,j then weight is inf
+
+            if (Adj[i][j] == 0)
+
+                P[i][j] = inf;
+
+            else
+
+                P[i][j] = Adj[i][j];
+
+        }
+
+    }
+
+
+    // Applying warshall
+
+    for (int k = 0; k < m; k++) {
+
+        for (int i = 0; i < m; i++) {
+
+            for (int j = 0; j < m; j++) {
+
+                P[i][j] = min(P[i][j], P[i][k]+P[k][j]);
+
+            }
+
+        }
+
+    }
+
+
+    cout << "Path matrix : \n";
+
+    for (int i = 0; i < m; i++) {
+
+        for (int j = 0; j < m; j++) {
+
+            cout << P[i][j] << " ";
+
+        }
+
+        cout << endl;
+
+    }
+
+}
+
+
+—-----------------------------------------------------------------------------------------------------------------------
+
+
+THE END.
+
+
+Help Us sending some money.
+
+BKASH NUM : 01835387453, 01966480555
